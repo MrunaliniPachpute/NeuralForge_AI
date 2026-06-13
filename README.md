@@ -89,8 +89,8 @@ Adaptive Instance Normalization transfers style by matching:
 * Channel-wise Standard Deviation
 
 between content and style feature maps.
+<img width="379" height="148" alt="ReferenceDLModelPipeline - Copy" padding="10px" src="https://github.com/user-attachments/assets/f2dd2bf0-b061-4e13-b19e-154770a96f8e" />
 
-<img width="300" height="300" padding="10px" alt="ReferenceDLModelPipeline - Copy" src="https://github.com/user-attachments/assets/d62dcb5b-bb48-47f2-a97c-3c521dafe6f0" />
 
 
 ### Decoder
