@@ -2,18 +2,6 @@
 
 # 🎨 NEURALFORGE AI
 
-### <i>Transforming Photographs into Artwork with Neural Style Transfer</i>
-
-<img src="https://readme-typing-svg.demolab.com?font=Orbitron&size=24&duration=2500&pause=1000&color=00F7FF&center=true&vCenter=true&width=700&lines=AdaIN+Powered+Generative+AI;PyTorch+%7C+Computer+Vision;Where+Art+Meets+Neural+Networks" />
-
-</div>
-
----
-
-<h1 align="center">
-  🧠 NeuralForge AI
-</h1>
-
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Orbitron&size=28&duration=3000&pause=1000&color=00F7FF&center=true&vCenter=true&width=700&lines=Neural+Style+Transfer;AdaIN+Powered+Image+Generation;PyTorch+%7C+Flask+%7C+Computer+Vision;Transforming+Photos+Into+Artwork" />
 </p>
