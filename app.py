@@ -1,6 +1,6 @@
 import os
 import torch
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory,request
 from flask_wtf import FlaskForm
 from flask_bootstrap import Bootstrap
 from werkzeug.utils import secure_filename
@@ -14,6 +14,8 @@ from utils.utils import adaptive_instance_normalization
 app = Flask(__name__)
 
 app.config["SECRET_KEY"] = "supersecret"
+app.config["WTF_CSRF_ENABLED"] = False
+
 app.config["UPLOAD_FOLDER"] = "static_uploads"
 app.config["ALLOWED_EXTENSIONS"] = {"png", "jpg", "jpeg"}
 
@@ -38,7 +40,20 @@ class UploadForm(FlaskForm):
 
 
 def load_models():
+    
     global encoder, decoder
+    print("About to load models...")
+    print("Current working directory:", os.getcwd())
+    print("VGG exists:", os.path.exists("vgg_normalised.pth"))
+    # BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    DECODER_PATH = os.path.join(
+            BASE_DIR,
+            "experiment",
+            "final_28epochmodel",
+            "decoder_3.pth"
+    )
+    print("Decoder path:", DECODER_PATH)
+    print("Decoder exists:", os.path.exists(DECODER_PATH))
 
     if encoder is None:
         print("Loading encoder...")
@@ -51,13 +66,6 @@ def load_models():
         decoder = Decoder().to(device)
         
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-        DECODER_PATH = os.path.join(
-            BASE_DIR,
-            "experiment",
-            "final_28epochmodel",
-            "decoder_3.pth"
-        )
 
         print("Decoder path:", DECODER_PATH)
 
@@ -136,7 +144,9 @@ def save_image(image, path):
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-
+    
+    print("INDEX ROUTE HIT")
+    print("REQUEST METHOD:", request.method)
     form = UploadForm()
 
     result_image = None
@@ -145,7 +155,7 @@ def index():
     error = None
 
     if form.validate_on_submit():
-
+        print("FORM SUBMITTED")
         if form.content.data and form.content.data.filename:
 
             if allowed_file(form.content.data.filename):
@@ -211,6 +221,8 @@ def index():
                 alpha = float(form.alpha.data)
 
                 load_models()
+                print("MODELS LOADED")
+                print("STARTING STYLE TRANSFER")
 
                 stylized_image = style_transfer(
                     content_image,
@@ -220,6 +232,7 @@ def index():
                     alpha,
                     device
                 )
+                print("STYLE TRANSFER COMPLETE")
 
                 result_filename = (
                     "stylized_" + content_filename
@@ -238,9 +251,14 @@ def index():
                 result_image = result_filename
 
             except Exception as e:
-                error = str(e)
-                print("ERROR:", e)
-
+              import traceback
+              print("========== EXCEPTION ==========")
+              traceback.print_exc()
+              print("ERROR:", repr(e))
+              print("===============================")
+              error = str(e)
+    else:
+      print("FORM ERRORS:", form.errors)
     return render_template(
         "index.html",
         form=form,
@@ -249,6 +267,7 @@ def index():
         content_image=content_filename,
         style_image=style_filename
     )
+
 
 
 @app.route("/uploads/<filename>")
