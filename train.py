@@ -31,7 +31,7 @@ def parse_arguments():
   parser.add_argument("--lr_decay" , type = float, default = 5e-5, help = "Learning rate decay")
   parser.add_argument("--epochs" , type =int , default =1, help = "Number of epochs") #4
   parser.add_argument("--content_weight" , type =float , default =1.0, help = "Content weight")
-  parser.add_argument("--style_weight" , type =float , default =10, help = "Style weight")
+  parser.add_argument("--style_weight" , type =float , default =5, help = "Style weight")
   parser.add_argument('--log_interval', type=int, default=1,
                         help='Log interval')
   parser.add_argument('--save_interval', type=int, default=2,

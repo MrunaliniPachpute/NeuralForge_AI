@@ -1,0 +1,12 @@
+Flask
+Flask_Bootstrap
+flask_wtf 
+numpy
+pandas
+streamlit
+Pillow
+torch
+torchvision
+tqdm
+Werkzeug
+gunicorn
