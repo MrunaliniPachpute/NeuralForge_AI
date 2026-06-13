@@ -8,7 +8,7 @@
 
 NeuralForge AI is a deep learning project that transforms ordinary photographs into artistic masterpieces by transferring the visual style of one image onto another. The project implements the **Adaptive Instance Normalization (AdaIN)** algorithm using **PyTorch**, trains a custom decoder network, and provides a user-friendly **Flask web application** for real-time style transfer.
 
-Project Link [Deployed on Azure] : <i style="color : blue"> [https://neuralforge-ai.onrender.com](https://neuralforgeai-c0gyctecbbcaaad2.southindia-01.azurewebsites.net/) </i>
+Project Link [Deployed on Azure] : <link style="color : blue"> [https://neuralforge-ai.onrender.com](https://neuralforgeai-c0gyctecbbcaaad2.southindia-01.azurewebsites.net/) </link>
 ---
 
 ## 🚀 Features
