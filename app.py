@@ -40,20 +40,23 @@ class UploadForm(FlaskForm):
 
 
 def load_models():
-    
     global encoder, decoder
+
     print("About to load models...")
     print("Current working directory:", os.getcwd())
-    print("VGG exists:", os.path.exists("vgg_normalised.pth"))
-    # BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    DECODER_PATH = os.path.join(
-            BASE_DIR,
-            "experiment",
-            "final_28epochmodel",
-            "decoder_3.pth"
+
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    decoder_path = os.path.join(
+        base_dir,
+        "experiment",
+        "final_28epochmodel",
+        "decoder_3.pth"
     )
-    print("Decoder path:", DECODER_PATH)
-    print("Decoder exists:", os.path.exists(DECODER_PATH))
+
+    print("VGG exists:", os.path.exists("vgg_normalised.pth"))
+    print("Decoder path:", decoder_path)
+    print("Decoder exists:", os.path.exists(decoder_path))
 
     if encoder is None:
         print("Loading encoder...")
@@ -64,21 +67,16 @@ def load_models():
     if decoder is None:
         print("Loading decoder...")
         decoder = Decoder().to(device)
-        
-        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-        print("Decoder path:", DECODER_PATH)
 
         decoder.load_state_dict(
             torch.load(
-                DECODER_PATH,
+                decoder_path,
                 map_location=device
             )
         )
 
         decoder.eval()
         print("Decoder loaded.")
-
 
 def allowed_file(filename):
     return (
