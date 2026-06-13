@@ -87,10 +87,10 @@ Adaptive Instance Normalization transfers style by matching:
 
 * Channel-wise Mean
 * Channel-wise Standard Deviation
-
 between content and style feature maps.
+---
 <img width="379" height="148" alt="ReferenceDLModelPipeline - Copy" padding="10px" src="https://github.com/user-attachments/assets/f2dd2bf0-b061-4e13-b19e-154770a96f8e" />
-
+---
 
 
 ### Decoder
@@ -235,28 +235,14 @@ The Flask application allows users to:
 
 ## 🛠️ Tech Stack
 
-### Deep Learning
-
-* PyTorch
-* Torchvision
-
-### Backend
-
-* Flask
-* Flask-WTF
-* WTForms
-
-### Frontend
-
-* HTML5
-* Bootstrap
-* CSS3
-* JavaScript
-
-### Image Processing
-
-* Pillow (PIL)
-
+| Layer | Technologies Used |
+|--------|------------------|
+| 🧠 Deep Learning | PyTorch, Torchvision |
+| ⚙️ Backend Framework | Flask |
+| 📝 Form Handling | Flask-WTF, WTForms |
+| 🎨 Frontend | HTML5, CSS3, Bootstrap, JavaScript |
+| 🖼️ Image Processing | Pillow (PIL) |
+| 🚀 Model Architecture | VGG Encoder + AdaIN + Custom Decoder |
 ---
 
 ## 📊 Training Outputs
