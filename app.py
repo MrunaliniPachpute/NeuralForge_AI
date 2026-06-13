@@ -89,7 +89,7 @@ def style_transfer(
     device
 ):
     transform = transforms.Compose([
-        transforms.Resize((256, 256)),
+        transforms.Resize((128, 128)),
         transforms.ToTensor()
     ])
 
