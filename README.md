@@ -110,11 +110,11 @@ The decoder learns to reconstruct images from AdaIN-transformed feature maps.
 
 ## 📊 Training Dataset
 
-| Source | Description | Count |
-|---------|------------|--------:|
-| COCO 2017 Test Dataset | Content Images for Structure Preservation | ~40,670 Images |
-| WikiArt Dataset Subset | Artistic Style Reference Images | ~8,476 Paintings |
-| **Total Dataset Used** | Content + Style Images | **~49,000 Images** |
+| Source | Description | Count | Size |
+|---------|------------|--------:|--------:|
+| COCO 2017 Test Dataset | Content Images for Structure Preservation | ~40,670 Images | ~6.65 GB |
+| WikiArt Dataset Subset | Artistic Style Reference Images | ~8,476 Paintings | ~3.95 GB |
+| **Total Dataset Used** | Content + Style Images | **~49,000 Images** | **~10.6 GB** |
 
 **Total Storage Size:** ~10.6 GB
 ---
