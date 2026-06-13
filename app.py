@@ -21,12 +21,28 @@ app.config["ALLOWED_EXTENSIONS"] = {"png", "jpg", "jpeg"}
 
 @app.route("/test")
 def test():
+    print("TEST HIT")
     return "TEST OK"
 
 @app.route("/load")
 def load():
+    print("LOAD HIT")
     load_models()
     return "MODELS LOADED"
+
+@app.route("/encoder")
+def encoder_test():
+    print("encoder HIT")
+    print("Loading encoder only...")
+    enc = VGGEncoder("vgg_normalised.pth")
+    return "encoder ok"
+
+@app.route("/decoder")
+def decoder_test():
+    print("decoder HIT")
+    print("Loading decoder only...")
+    dec = Decoder()
+    return "decoder ok"
 
 Bootstrap(app)
 
@@ -60,7 +76,7 @@ def load_models():
         base_dir,
         "experiment",
         "final_28epochmodel",
-        "decoder_3.pth"
+        "decoder_6.pth"
     )
     vgg_path = os.path.join(
         base_dir,
