@@ -7,8 +7,6 @@
 </p>
 </div>
 
-**Neural Style Transfer using Adaptive Instance Normalization (AdaIN)**
-
 NeuralForge AI is a deep learning project that transforms ordinary photographs into artistic masterpieces by transferring the visual style of one image onto another. The project implements the **Adaptive Instance Normalization (AdaIN)** algorithm using **PyTorch**, trains a custom decoder network, and provides a user-friendly **Flask web application** for real-time style transfer.
 
 ---
