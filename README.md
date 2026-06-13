@@ -2,10 +2,8 @@
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Orbitron&size=28&duration=3000&pause=1000&color=00F7FF&center=true&vCenter=true&width=700&lines=Neural+Style+Transfer;AdaIN+Powered+Image+Generation;PyTorch+%7C+Flask+%7C+Computer+Vision;Transforming+Photos+Into+Artwork" />
 </p>
-
-# 🎨 NEURALFORGE AI
 </div>
-
+# 🎨 NEURALFORGE AI
 NeuralForge AI is a deep learning project that transforms ordinary photographs into artistic masterpieces by transferring the visual style of one image onto another. The project implements the **Adaptive Instance Normalization (AdaIN)** algorithm using **PyTorch**, trains a custom decoder network, and provides a user-friendly **Flask web application** for real-time style transfer.
 
 ---
