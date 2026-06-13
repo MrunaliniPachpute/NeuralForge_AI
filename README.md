@@ -39,31 +39,11 @@ The model:
 ## 🏗️ Project Architecture
 
 ```text
-Content Image
-       │
-       ▼
-   VGG Encoder
-       │
-       ▼
- Content Features
-       │
-       │
-       ▼
-Adaptive Instance Normalization (AdaIN)
-       ▲
-       │
- Style Features
-       │
-   VGG Encoder
-       │
-       ▼
-  Style Image
-       │
-       ▼
-     Decoder
-       │
-       ▼
- Stylized Output
+Content Image ──► VGG Encoder → Content Features──┐
+                                                  ▼
+                                                AdaIN ──► Decoder ──► Stylized Output
+                                                  ▲
+Style Image ───► VGG Encoder → Style Features  ───┘
 ```
 
 ---
@@ -107,8 +87,6 @@ The decoder learns to reconstruct images from AdaIN-transformed feature maps.
 ---
 
 ## 📂 Dataset
-
-## 📊 Training Dataset
 
 | Source | Description | Count | Size |
 |---------|------------|--------:|--------:|
