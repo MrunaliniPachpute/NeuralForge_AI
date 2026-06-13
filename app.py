@@ -19,6 +19,15 @@ app.config["WTF_CSRF_ENABLED"] = False
 app.config["UPLOAD_FOLDER"] = "static_uploads"
 app.config["ALLOWED_EXTENSIONS"] = {"png", "jpg", "jpeg"}
 
+@app.route("/test")
+def test():
+    return "TEST OK"
+
+@app.route("/load")
+def load():
+    load_models()
+    return "MODELS LOADED"
+
 Bootstrap(app)
 
 os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
@@ -53,14 +62,17 @@ def load_models():
         "final_28epochmodel",
         "decoder_3.pth"
     )
-
-    print("VGG exists:", os.path.exists("vgg_normalised.pth"))
+    vgg_path = os.path.join(
+        base_dir,
+        "vgg_normalised.pth"
+    )
+    print("VGG exists:", os.path.exists(vgg_path))
     print("Decoder path:", decoder_path)
     print("Decoder exists:", os.path.exists(decoder_path))
 
     if encoder is None:
         print("Loading encoder...")
-        encoder = VGGEncoder("vgg_normalised.pth").to(device)
+        encoder = VGGEncoder(vgg_path).to(device)
         encoder.eval()
         print("Encoder loaded.")
 
